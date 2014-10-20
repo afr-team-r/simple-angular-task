@@ -17,11 +17,11 @@ app.controller('myController',['$scope', function($scope) {
 	};
 	
 	$scope.removeTasks = function() {
-		
-		for(task in $scope.todos)
-			if($scope.todos[task].done)
-				$scope.todos.splice(task, 1);
-		
+        
+       $scope.todos =  _.filter($scope.todos, function(item) {
+            return !item.done;
+        });
+      	
 	};
 
 }]);
